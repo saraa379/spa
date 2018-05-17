@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Menu from './components/Menu.js';
 import './App.css';
+import {connect} from 'react-redux';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <div>
+          <div id="AppWrap" className={(this.props.currentContent=="Home") ? "visible" : "invincible"}>
+              <header>
+                  <Menu></Menu>
+                  <div className="icons">
+                      <div><i className="fas fa-user"></i></div>
+                      <div><i className="fas fa-shopping-cart"></i></div>
+                  </div>
+              </header>
+              <div className="hero">
+              </div>
+        	  	  Hello Redux!
+          </div>
+          <div id="AdminWrap" className={(this.props.currentContent=="Admin") ? "visible" : "invincible"}>
+              Admin page
+          </div>
+      </div>//end of outer wrap
     );
   }
 }
 
-export default App;
+let mapStateToProps = state => {
+	return {
+		currentContent: state.currentContent
+	};
+}
+
+export default connect(mapStateToProps)(App);
