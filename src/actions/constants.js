@@ -1,0 +1,3 @@
+const TAB_CLICKED = 'TAB_CLICKED';
+
+export {TAB_CLICKED};

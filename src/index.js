@@ -10,7 +10,17 @@ import rootReducer from './reducers/reducer.js'
 const initialState = {
 	value: 14,
 	currentTab: "Home",
-	currentContent: "Home"
+	products: [
+			{name: 'Organic Cocoa Butter By Sky Organics',
+			 price: 99,
+			 url: 'img/p1.jpg'},
+			 {name: 'Marshmallow Eye Cream with Q10 and Ginseng',
+ 			 price: 199,
+ 			 url: 'img/p2.jpg'},
+			 {name: 'French Lavender Massage Oil',
+ 			 price: 99,
+ 			 url: 'img/p3.jpg'}
+  ]
 };
 
 

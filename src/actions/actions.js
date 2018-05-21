@@ -1,13 +1,16 @@
-
-let actionIncreaseByOne = () => {
+import {TAB_CLICKED} from './constants.js';
+//click event for tabs
+let actionClickTab = (currentTab) => {
 	return {
-		type: 'INCREASE_BY_ONE'
+		type: TAB_CLICKED,
+		tab: currentTab
 	}
 }
+
 let actionUpdate = (amount) => {
 	return {
 		type: 'UPDATE',
 		amount: amount
 	}
 }
-export { actionIncreaseByOne, actionUpdate };
+export { actionUpdate, actionClickTab };
