@@ -14,9 +14,10 @@ class Products extends Component {
 												 <p>{product.price}</p>
 												 <button>Buy</button>
 									 </div>;
-				} else {
+				} else if (product.url.charAt(0) !== 'p'){
+						console.log("external url: " + product.url);
 					return <div className="product" key={product.name}>
-											<img src={require(product.url)} alt="product"/>
+											<img src={product.url} alt="product"/>
 											<p>{product.name}</p>
 											<p>{product.price}</p>
 											<button>Buy</button>

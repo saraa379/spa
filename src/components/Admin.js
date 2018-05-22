@@ -34,6 +34,9 @@ class Admin extends Component {
 			console.log("Url of the product: " + this.state.valueImg);
 			let action = actionAddProduct(this.state.valueName, this.state.valuePrice, this.state.valueImg);
 			this.props.dispatch(action);
+			this.setState({valueName: ""});
+			this.setState({valuePrice: ""});
+			this.setState({valueImg: ""});
 	}
 
 	render() {
