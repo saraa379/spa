@@ -1,4 +1,4 @@
-import {TAB_CLICKED} from './constants.js';
+import {TAB_CLICKED, ADD_PRODUCT} from './constants.js';
 //click event for tabs
 let actionClickTab = (currentTab) => {
 	return {
@@ -7,10 +7,12 @@ let actionClickTab = (currentTab) => {
 	}
 }
 
-let actionUpdate = (amount) => {
+let actionAddProduct = (name, price, url) => {
 	return {
-		type: 'UPDATE',
-		amount: amount
+		type: ADD_PRODUCT,
+		name: name,
+		price: price,
+		url: url
 	}
 }
-export { actionUpdate, actionClickTab };
+export { actionAddProduct, actionClickTab };

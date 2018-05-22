@@ -1,3 +1,4 @@
 const TAB_CLICKED = 'TAB_CLICKED';
+const ADD_PRODUCT = 'ADD_PRODUCT';
 
-export {TAB_CLICKED};
+export {TAB_CLICKED, ADD_PRODUCT};

@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
-import {actionUpdate} from '../actions/actions.js';
 import {connect} from 'react-redux';
 
 
 class Products extends Component {
 	render() {
 		const products = this.props.products;
-		var imgIndex = 0;
 		const listItems = products.map(function(product) {
+				if(product.url.charAt(0) === 'p'){
 
-					let url = 'p' + imgIndex;
-				  return <div className="product" key={product.name}>
-											 <img src={require("../img/"+product.url+".jpg")} alt="product"/>
-								       <p>{product.name}</p>
-											 <p>{product.price}</p>
-											 <button>Buy</button>
-								 </div>;
+					  return <div className="product" key={product.name}>
+												 <img src={require("../img/"+product.url+".jpg")} alt="product"/>
+									       <p>{product.name}</p>
+												 <p>{product.price}</p>
+												 <button>Buy</button>
+									 </div>;
+				} else {
+					return <div className="product" key={product.name}>
+											<img src={require(product.url)} alt="product"/>
+											<p>{product.name}</p>
+											<p>{product.price}</p>
+											<button>Buy</button>
+								</div>;
+				}
 		}); //end of map
 
 		return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Menu from './components/Menu.js';
 import Products from './components/Products.js';
+import Admin from './components/Admin.js';
 import {actionClickTab} from './actions/actions.js';
 import './App.css';
 import {connect} from 'react-redux';
@@ -27,7 +28,7 @@ class App extends Component {
               <Products />
           </div>
           <div id="AdminWrap" className={(this.props.currentTab==="Admin") ? "visible" : "invincible"}>
-              Admin page
+              <Admin />
           </div>
           <div id="HistoryWrap" className={(this.props.currentTab==="History") ? "visible" : "invincible"}>
               History page
