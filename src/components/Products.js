@@ -8,19 +8,18 @@ class Products extends Component {
 		const products = this.props.products;
 		var imgIndex = 0;
 		const listItems = products.map(function(product) {
-					imgIndex = imgIndex + 1;
-					console.log("Image url: " + product.url);
 
 					let url = 'p' + imgIndex;
 				  return <div className="product" key={product.name}>
-											 <img src={require("../img/"+url+".jpg")} alt="product"/>
+											 <img src={require("../img/"+product.url+".jpg")} alt="product"/>
 								       <p>{product.name}</p>
 											 <p>{product.price}</p>
+											 <button>Buy</button>
 								 </div>;
 		}); //end of map
 
 		return (
-			<div>
+			<div className="productWrap">
 					{listItems}
 			</div>
 		) //end of return

@@ -79,9 +79,31 @@ nav div:hover {
         margin-top: 15px;
         text-shadow: #000033 1px 1px 1px;
     }
+/*Product styles*/
+.productWrap {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+.product {
+    display: inline-block;
+    width: 250px;
+    height: 350px;
+}
 img {
-    height: 100px;
+    height: auto;
+    width: 100%;
+}
+.product button {
+    height: 35px;
     width: 100px;
+    background-color: #8F8FBC;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
 }
 
 /*Media queries*/
@@ -99,6 +121,19 @@ img {
 @media screen and (max-width: 700px){
     .hero {
         height: 250px;
+    }
+    .product {
+        width: 200px;
+    }
+}
+@media screen and (max-width: 500px){
+    .productWrap {
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .product {
+        margin: auto;
     }
 }
 @media screen and (max-width: 450px){
