@@ -7,16 +7,21 @@ class Cart extends Component {
 
 	constructor(props) {
 			super(props);
+			this.state = {currentProducts: []};
 			/*
-			this.state = {valueName: '',
-										valuePrice: '',
-										valueImg: ''
-			}; //end of state
 			this.handleChangeName = this.handleChangeName.bind(this);
 			this.handleChangePrice = this.handleChangePrice.bind(this);
 			this.handleChangeImg = this.handleChangeImg.bind(this);
 			this.handleClickAdd = this.handleClickAdd.bind(this);*/
 	}//end of constructor
+
+	componentWillReceiveProps(newProps){
+				console.log("newprops came product id: " + newProps.pIdAddedCart);
+				//retrieve added product from product list
+				//creates empty product Object and save added product
+				//push product object into state
+				//this.setState({userKey: newProps.user.key});
+	}//end of will recieve props
 /*
 	handleChangeName(event) {
 			this.setState({valueName: event.target.value});
@@ -62,7 +67,8 @@ class Cart extends Component {
 let mapStateToProps = state => {
 	return {
 		cartCount: state.cartCount,
-		productsInCart : state.productsInCart
+		pIdAddedCart : state.pIdAddedCart,
+		products: state.products
 	};
 }
 

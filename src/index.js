@@ -9,7 +9,8 @@ import rootReducer from './reducers/reducer.js'
 
 const initialState = {
 	cartCount: 0,
-	productsInCart: [],
+	pIdAddedCart: 0,
+	//productsInCart: [],
 	currentTab: "Home",
 	latestId: 8,
 	products: [

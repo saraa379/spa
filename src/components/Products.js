@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {actionAddToCart} from '../actions/actions.js';
 
 
 class Products extends Component {
@@ -11,14 +12,8 @@ class Products extends Component {
 
 	clickAddProductCart = (pId) => {
 			console.log("Product is added to cart: " + pId);
-			//console.log("Price of the product: " + this.state.valuePrice);
-			//console.log("Url of the product: " + this.state.valueImg);
-			//var id = this.props.latestId + 1;
-			//let action = actionAddProduct(id, this.state.valueName, this.state.valuePrice, this.state.valueImg);
-			//this.props.dispatch(action);
-			//this.setState({valueName: ""});
-			//this.setState({valuePrice: ""});
-			//this.setState({valueImg: ""});
+			let action = actionAddToCart(pId);
+			this.props.dispatch(action);
 	}
 
 	render() {

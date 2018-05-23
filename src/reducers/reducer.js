@@ -27,7 +27,7 @@ let rootReducer = (state, action) => {
 			return {
 				...state,
 				cartCount: state.cartCount + 1,
-				productsInCart: [...state.productsInCart, action.productId],
+				pIdAddedCart: action.productId,
 			};
 
 		default:
