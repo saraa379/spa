@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Menu from './components/Menu.js';
 import Products from './components/Products.js';
 import Admin from './components/Admin.js';
+import Cart from './components/Cart.js';
 import {actionClickTab} from './actions/actions.js';
 import './App.css';
 import {connect} from 'react-redux';
@@ -14,7 +15,7 @@ class App extends Component {
               <Menu></Menu>
               <div className="icons">
                   <div onClick={event => this.props.dispatch(actionClickTab("Admin"))}><i className="fas fa-user"></i></div>
-                  <div onClick={event => this.props.dispatch(actionClickTab("Cart"))}><i className="fas fa-shopping-cart"></i></div>
+                  <div onClick={event => this.props.dispatch(actionClickTab("Cart"))}><i className="fas fa-shopping-cart"></i><span>{(this.props.cartCount!==0) ? this.props.cartCount : ''}</span></div>
               </div>
           </header>
           <div id="AppWrap" className={(this.props.currentTab==="Home") ? "visible" : "invincible"}>
@@ -34,7 +35,7 @@ class App extends Component {
               History page
           </div>
           <div id="CartWrap" className={(this.props.currentTab==="Cart") ? "visible" : "invincible"}>
-              Cart page
+              <Cart />
           </div>
       </div>//end of outer wrap
     );
@@ -43,7 +44,8 @@ class App extends Component {
 
 let mapStateToProps = state => {
 	return {
-		currentTab: state.currentTab
+		currentTab: state.currentTab,
+    cartCount: state.cartCount
 	};
 }
 

@@ -4,25 +4,17 @@ let rootReducer = (state, action) => {
 	switch( action.type ) {
 
 		case 'ADD_PRODUCT':
-		/*
-			return {
-					...state,
-
-					[...state.products, {
-							name: action.name,
-							price: action.price,
-							url: action.url
-					}]
-			};*/
 			return Object.assign({}, state, {
         products: [
           ...state.products,
           {
 						name: action.name,
 						price: action.price,
-						url: action.url
+						url: action.url,
+						id: action.id
           }
-        ]
+        ],
+				latestId: action.id
       })
 
 		case TAB_CLICKED:

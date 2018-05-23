@@ -7,12 +7,13 @@ let actionClickTab = (currentTab) => {
 	}
 }
 
-let actionAddProduct = (name, price, url) => {
+let actionAddProduct = (id, name, price, url) => {
 	return {
 		type: ADD_PRODUCT,
 		name: name,
 		price: price,
-		url: url
+		url: url,
+		id: id
 	}
 }
 export { actionAddProduct, actionClickTab };

@@ -8,19 +8,19 @@ class Products extends Component {
 		const listItems = products.map(function(product) {
 				if(product.url.charAt(0) === 'p'){
 
-					  return <div className="product" key={product.name}>
+					  return <div className="product" key={product.id}>
 												 <img src={require("../img/"+product.url+".jpg")} alt="product"/>
 									       <p>{product.name}</p>
 												 <p>{product.price}</p>
-												 <button>Buy</button>
+												 <button>Add to cart</button>
 									 </div>;
 				} else if (product.url.charAt(0) !== 'p'){
 						console.log("external url: " + product.url);
-					return <div className="product" key={product.name}>
+					return <div className="product" key={product.id}>
 											<img src={product.url} alt="product"/>
 											<p>{product.name}</p>
 											<p>{product.price}</p>
-											<button>Buy</button>
+											<button>Add to cart</button>
 								</div>;
 				}
 		}); //end of map

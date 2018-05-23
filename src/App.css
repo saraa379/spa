@@ -17,6 +17,7 @@
     text-align: center;
     background-color: white;
 }
+/*Header styles*/
 header {
     height: 40px;
     width: 100%;
@@ -44,17 +45,22 @@ nav div:hover {
 .icons {
     display: inline;
     padding-top: 7px;
+    position: relative;
 }
 .icons div {
     display: inline;
     margin-right: 15px;
     font-size: 1.5rem;
     color: #8F8FBC;
+    position: relative;
 }
 .icons div:hover {
     color: white;
 }
-
+.icons span {
+    vertical-align: top;
+    font-size: 1rem;
+}
 /*Home page styles*/
 .hero {
     width: 100%;
