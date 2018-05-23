@@ -42,23 +42,27 @@ class Cart extends Component {
 	}
 */
 	render() {
+			if(this.props.cartCount === 0){
+					return (
+						<div className="empty">Your shopping cart is empty</div>)
+			} else {
 
+					return (
+						<div>
 
-		return (
-			<div>
+								Shopping cart
 
-					Shopping cart
-
-			</div>
-		)//end of return
+						</div>
+					)//end of return
+			}//end of if else
 	}//end of render
 
 } //end of component
 
 let mapStateToProps = state => {
 	return {
-		currentTab: state.currentTab,
-		latestId : state.latestId
+		cartCount: state.cartCount,
+		productsInCart : state.productsInCart
 	};
 }
 

@@ -35,7 +35,13 @@ class App extends Component {
               History page
           </div>
           <div id="CartWrap" className={(this.props.currentTab==="Cart") ? "visible" : "invincible"}>
-              <Cart />
+              <div className="innerCart">
+                  <div className="cartHeader">
+                      <h2>Shopping cart</h2>
+                  </div>
+                  <Cart />
+              </div>
+
           </div>
       </div>//end of outer wrap
     );

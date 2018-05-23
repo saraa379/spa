@@ -1,11 +1,11 @@
-import {TAB_CLICKED, ADD_PRODUCT} from './constants.js';
+import {TAB_CLICKED, ADD_PRODUCT, ADD_TO_CART} from './constants.js';
 //click event for tabs
 let actionClickTab = (currentTab) => {
 	return {
 		type: TAB_CLICKED,
 		tab: currentTab
 	}
-}
+}//end of action
 
 let actionAddProduct = (id, name, price, url) => {
 	return {
@@ -15,5 +15,13 @@ let actionAddProduct = (id, name, price, url) => {
 		url: url,
 		id: id
 	}
-}
-export { actionAddProduct, actionClickTab };
+}//end of action
+
+let actionAddToCart = (productId) => {
+	return {
+		type: ADD_TO_CART,
+		productId: productId
+	}
+}//end of action
+
+export { actionAddProduct, actionClickTab, actionAddToCart };
