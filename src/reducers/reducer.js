@@ -3,7 +3,7 @@ import {TAB_CLICKED, ADD_PRODUCT, ADD_TO_CART} from '../actions/constants.js';
 let rootReducer = (state, action) => {
 	switch( action.type ) {
 
-		case 'ADD_PRODUCT':
+		case ADD_PRODUCT:
 			return Object.assign({}, state, {
         products: [
           ...state.products,

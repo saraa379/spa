@@ -180,7 +180,6 @@ img {
 .innerCart {
     width: 60%;
     margin: 50px auto;
-    border: 2px solid grey;
     min-height: 500px;
 }
 .cartHeader {
@@ -198,6 +197,33 @@ img {
 .empty {
     text-align: center;
     margin-top: 50px;
+}
+.producWrap {
+    min-height: 100px;
+    border-bottom: 2px solid grey;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.left, .right {
+    display: inline;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+}
+.left {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.producWrap p {
+    display: inline-block;
+    width: 200px;
+    padding-left: 5px;
+}
+.producWrap img {
+    width: 100px;
+    height: auto;
 }
 /*Media queries*/
 @media screen and (max-width: 1100px){
