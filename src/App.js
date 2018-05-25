@@ -41,7 +41,6 @@ class App extends Component {
                   </div>
                   <Cart />
               </div>
-
           </div>
       </div>//end of outer wrap
     );

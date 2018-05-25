@@ -8,11 +8,8 @@ class Cart extends Component {
 	constructor(props) {
 			super(props);
 			this.state = {currentProducts: []};
-			/*
-			this.handleChangeName = this.handleChangeName.bind(this);
-			this.handleChangePrice = this.handleChangePrice.bind(this);
-			this.handleChangeImg = this.handleChangeImg.bind(this);
-			this.handleClickAdd = this.handleClickAdd.bind(this);*/
+			this.handleClickPlus = this.handleClickPlus.bind(this);
+			this.handleClickMinus = this.handleClickMinus.bind(this);
 	}//end of constructor
 
 	componentWillReceiveProps(newProps){
@@ -69,56 +66,72 @@ class Cart extends Component {
 
 				}//end if
 	}//end of will recieve props
-/*
-	handleChangeName(event) {
-			this.setState({valueName: event.target.value});
+
+	handleClickPlus(id) {
+			//console.log("Plus button is clicked: " + id);
+			var index = 0; //index of current product
+			var products = this.state.currentProducts;
+			for (var i = 0; i < products.length; i++) {
+					if(products[i].id === id){
+							index = i;
+					}
+			}//for loop
+			//console.log("Id of the clciked product: " + this.state.currentProducts[index].id);
+			var price = products[index].price.substring(0, products[index].price.length - 2);
+			var priceNumber = parseInt(price, 10);
+			products[index].amount = this.state.currentProducts[index].amount + 1;
+			products[index].totalValue = this.state.currentProducts[index].totalValue  + priceNumber;
+			this.setState({
+					currentProducts: products
+			}); //end setstate
+	}
+	handleClickMinus(id) {
+			//console.log("Plus button is clicked: " + id);
+			var index = 0; //index of current product
+			var products = this.state.currentProducts;
+			for (var i = 0; i < products.length; i++) {
+					if(products[i].id === id){
+							index = i;
+					}
+			}//for loop
+			//console.log("Id of the clciked product: " + this.state.currentProducts[index].id);
+			var price = products[index].price.substring(0, products[index].price.length - 2);
+			var priceNumber = parseInt(price, 10);
+			if (products[index].amount >= 1) {
+						products[index].amount = this.state.currentProducts[index].amount - 1;
+						products[index].totalValue = this.state.currentProducts[index].totalValue  - priceNumber;
+						this.setState({
+								currentProducts: products
+						}); //end setstate
+		}//end of if
 	}
 
-	handleChangePrice(event) {
-			this.setState({valuePrice: event.target.value});
-	}
-
-	handleChangeImg(event) {
-			this.setState({valueImg: event.target.value});
-	}
-	handleClickAdd(event) {
-			console.log("Name of the product: " + this.state.valueName);
-			console.log("Price of the product: " + this.state.valuePrice);
-			console.log("Url of the product: " + this.state.valueImg);
-			var id = this.props.latestId + 1;
-			let action = actionAddProduct(id, this.state.valueName, this.state.valuePrice, this.state.valueImg);
-			this.props.dispatch(action);
-			this.setState({valueName: ""});
-			this.setState({valuePrice: ""});
-			this.setState({valueImg: ""});
-	}
-*/
 	render() {
 			var currentProducts = this.state.currentProducts;
-			console.log("Current products length: " + currentProducts.length);
-			console.log("Current products in array");
+			//console.log("Current products length: " + currentProducts.length);
+			//console.log("Current products in array");
 			var totalPay = 0;
 			if(currentProducts.length !== 0){
 							for (var ind = 0; ind < currentProducts.length; ind++) {
-								console.log("Product in cart: " + currentProducts[ind].id);
-								console.log("Product in cart: " + currentProducts[ind].name);
-								console.log("Product in cart: " + currentProducts[ind].price);
-								console.log("Product in cart: " + currentProducts[ind].url);
-								console.log("Product in cart: " + currentProducts[ind].amount);
-								console.log("Product in cart: " + currentProducts[ind].totalValue);
+								//console.log("Product in cart: " + currentProducts[ind].id);
+								//console.log("Product in cart: " + currentProducts[ind].name);
+								//console.log("Product in cart: " + currentProducts[ind].price);
+								//console.log("Product in cart: " + currentProducts[ind].url);
+								//console.log("Product in cart: " + currentProducts[ind].amount);
+								//console.log("Product in cart: " + currentProducts[ind].totalValue);
 								totalPay = totalPay + currentProducts[ind].totalValue;
 							}//for loop
 			} else {
 					console.log("Product array is empty");
 			}
 
-			console.log("Total amount to pay" + totalPay);
+			//console.log("Total amount to pay" + totalPay);
 
 			if(this.props.cartCount === 0){
 					return (
 						<div className="empty">Your shopping cart is empty</div>)
 			} else {
-
+				var that = this;
 				const listItems = currentProducts.map(function(prod) {
 							return <div className="producWrap" key={prod.id}>
 												<div className="left">
@@ -126,14 +139,20 @@ class Cart extends Component {
 															<p>{prod.name}</p>
 												</div>
 												<div className="right">
-														{prod.totalValue}
+															<div className="box">
+																		<button className="minus" onClick={() => that.handleClickMinus(prod.id)}>-</button>
+																		{prod.amount}
+																		<button className="plus" onClick={() => that.handleClickPlus(prod.id)}>+</button>
+															</div>
+															<p>{prod.totalValue}</p>
 												</div>
 									</div>;
 				}); //end of map
 
 					return (
 						<div>
-								{listItems}
+									{listItems}
+									<p className="total">Total: {totalPay}</p>
 						</div>
 					)//end of return
 			}//end of if else

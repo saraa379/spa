@@ -29,7 +29,7 @@ class Products extends Component {
 												 <button onClick={event => that.clickAddProductCart(product.id)}>Add to cart</button>
 									 </div>;
 				} else if (product.url.charAt(0) !== 'p'){
-						console.log("external url: " + product.url);
+						//console.log("external url: " + product.url);
 					return <div className="product" key={product.id}>
 											<img src={product.url} alt="product"/>
 											<p>{product.name}</p>
