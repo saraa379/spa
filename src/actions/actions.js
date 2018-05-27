@@ -24,4 +24,4 @@ let actionAddToCart = (productId) => {
 	}
 }//end of action
 
-export { actionAddProduct, actionClickTab, actionAddToCart };
+export { actionAddProduct, actionClickTab, actionAddToCart};

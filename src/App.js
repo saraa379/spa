@@ -3,6 +3,7 @@ import Menu from './components/Menu.js';
 import Products from './components/Products.js';
 import Admin from './components/Admin.js';
 import Cart from './components/Cart.js';
+import History from './components/History.js';
 import {actionClickTab} from './actions/actions.js';
 import './App.css';
 import {connect} from 'react-redux';
@@ -32,7 +33,12 @@ class App extends Component {
               <Admin />
           </div>
           <div id="HistoryWrap" className={(this.props.currentTab==="History") ? "visible" : "invincible"}>
-              History page
+                  <div className="innerCart">
+                      <div className="cartHeader">
+                          <h2>Action history</h2>
+                      </div>
+                      <History />
+                  </div>
           </div>
           <div id="CartWrap" className={(this.props.currentTab==="Cart") ? "visible" : "invincible"}>
               <div className="innerCart">

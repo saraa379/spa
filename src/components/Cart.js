@@ -31,14 +31,14 @@ class Cart extends Component {
 							}
 							//saves new product into cartCount
 							if (this.state.currentProducts.length) { //Cart is not empty
-										 console.log("Cart is not empty");
+										 //console.log("Cart is not empty");
 										 var exist = false;
 										 //find the product in the cart
 										 	var i;
 											for (i = 0; i < this.state.currentProducts.length; i++) {
 													//if product is in the cart, update it
 											    if (productCart.id === this.state.currentProducts[i].id) {
-															console.log("Product is already in the cart");
+															//console.log("Product is already in the cart");
 															exist = true;
 																//update the product info in array
 															var tempArray = this.state.currentProducts;
@@ -51,13 +51,13 @@ class Cart extends Component {
 											}//end inner for
 											//if product is not in the cart, add it
 											if(!exist){
-												console.log("Cart is not empty, but product is not there");
+												//console.log("Cart is not empty, but product is not there");
 													this.setState(prevState => ({
 															currentProducts: [...prevState.currentProducts, productCart]
 													}));
 											}
 							} else { //cart is empty, add the product
-											console.log("Cart was empty ");
+											//console.log("Cart was empty ");
 											this.setState(prevState => ({
 													currentProducts: [...prevState.currentProducts, productCart]
 											}));

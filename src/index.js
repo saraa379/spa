@@ -13,6 +13,7 @@ const initialState = {
 	//productsInCart: [],
 	currentTab: "Home",
 	latestId: 8,
+	history: [],
 	products: [
 			{name: 'Organic Cocoa Butter By Sky Organics',
 			 price: "99kr",
